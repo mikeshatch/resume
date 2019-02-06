@@ -1,8 +1,11 @@
 /* Color Palette
-#2B2D42 - dark blue
-#8D99AE - light blue
-#EDF2F4 - blue/white
-#EF233C - red
+#e1f4fc - light blue (Nav)
+#212227 - midnight navy (Header/Footer BG)
+#8D99AE - greyish blue (Header/Footer Color)
+#d8e436 - neon yellow (Header h1/h2)
+#db8b12 - orange (a/button)
+#cbe2eb - super light blue (Projects)
+#7a8fb3 - light blue (Training)
 */
 
 /* Global styles
@@ -30,8 +33,11 @@ h2 {
   font-size: 40px;
   margin-top: 0;
 }
+h3 {
+  margin: 0;
+}
 a {
-  color: rgb(219, 139, 18);
+  color: #db8b12;
 }
 a:hover {
   text-decoration: none;
@@ -39,39 +45,45 @@ a:hover {
 .content-wrap {
   max-width: 950px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 60px 50px;
   overflow: hidden;
 }
-.col-narrow {
-  width: 30%;
-  float: left;
+.uppercase {
+  text-transform: uppercase;
 }
-.col-wide {
-  width: 60%;
-  float: left;
-  padding-left: 20px;
+.btn {
+  text-decoration: none;
+  background: #db8b12;
+  color: #fff;
+  padding: 10px;
+  display: inline-block;
 }
-
-.strike {
-  text-decoration: line-through;
+section, nav, header {
+  border-bottom: 1px solid #d8e436;
 }
 
 /* Header and Footer 
 -----------------------*/
 header, footer {
-  background: rgb(33, 34, 39);
+  background: #212227;
   color: #8D99AE;
 }
 /* header */
+header {
+  padding-top: 50px;
+  position: relative;
+}
+header h1, header h2 {
+  color: #d8e436;
+  margin: 0;
+}
 .profile-img {
   border-radius: 6px;
 }
-header {
-  text-align: center;
-}
-header h1, header h2 {
-  color: rgb(216, 228, 54);
-  margin: 0;
+.download {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 /* footer */
 footer {
@@ -82,14 +94,65 @@ footer {
   display: inline-block;
 }
 
-/* Work Experience
+/* Navigation
 -----------------------*/
-.work {
-  background: rgb(203, 226, 235);
+nav {
+  text-align: center;
+  background: #e1f4fc;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav a {
+  display: inline-block;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-/* Education
+/* Side Projects
 -----------------------*/
-.education {
-  background: rgb(122, 143, 179);
+.projects {
+  background: #cbe2eb;
+}
+h3 ~ p {
+  margin: 0;
+}
+.job-description {
+  margin-bottom: 25px;
+}
+.job-description p:first-of-type {
+  margin-top: 0;
+}
+
+/* Training
+-----------------------*/
+.training {
+  background: #7a8fb3;
+}
+p + h3 {
+  margin-top: 30px;
+}
+
+/* Media Queries
+-----------------------*/
+@media (min-width: 900px) {
+  .col-narrow {
+    width: 30%;
+    float: left;
+  }
+  .col-wide {
+    width: 60%;
+    float: left;
+    padding-left: 20px;
+  }
+}
+@media (max-width: 899px) {
+  header {
+    text-align: center;
+  }
+  .profile-img {
+    width: 200px;
+  }
 }
