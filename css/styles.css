@@ -67,7 +67,7 @@ header, footer {
 }
 /* header */
 header {
-  margin-top: 0;
+  padding-top: 50px;
   position: relative;
 }
 header h1, header h2 {
@@ -96,6 +96,9 @@ footer {
 nav {
   text-align: center;
   background: #e1f4fc;
+  top: 0;
+  position: fixed;
+  width: 100%;
 }
 nav a {
   display: inline-block;
@@ -118,7 +121,7 @@ nav a:hover {
   flex-wrap: wrap;
 }
 .flex-nav li {
-  flex: 1;
+  flex: 2;
 }
 @media (max-width: 500px) {
   .flex-nav li {
@@ -169,5 +172,14 @@ p + h3 {
   }
   .profile-img {
     width: 200px;
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    position: relative;
+    top: 0;
+    }
+  header {
+    padding-top: 0;
   }
 }
