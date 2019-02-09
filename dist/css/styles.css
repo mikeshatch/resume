@@ -1,13 +1,3 @@
-/* Color Palette
-#e1f4fc - light blue (Nav)
-#212227 - midnight navy (Header/Footer BG)
-#8D99AE - greyish blue (Header/Footer Color)
-#d8e436 - neon yellow (Header h1/h2)
-#db8b12 - orange (a/button)
-#cbe2eb - super light blue (Projects)
-#7a8fb3 - light blue (Training)
-*/
-
 /* Global styles
 --------------------------*/
 /* border box fix */
@@ -58,9 +48,6 @@ a:hover {
   padding: 10px;
   display: inline-block;
 }
-section, nav, header {
-  border-bottom: 1px solid #d8e436;
-}
 
 /* Header and Footer 
 -----------------------*/
@@ -99,8 +86,8 @@ footer {
 nav {
   text-align: center;
   background: #e1f4fc;
-  position: fixed;
   top: 0;
+  position: fixed;
   width: 100%;
 }
 nav a {
@@ -109,6 +96,27 @@ nav a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
+}
+nav a:hover {
+  box-shadow: inset 0 -3px 0 #212227;
+  color: #212227;
+  transition: color .2s;
+}
+/* Flexbox */
+.flex-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-nav li {
+  flex: 2;
+}
+@media (max-width: 500px) {
+  .flex-nav li {
+    flex: 1 4 75%;
+  }
 }
 
 /* Side Projects
@@ -154,5 +162,14 @@ p + h3 {
   }
   .profile-img {
     width: 200px;
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    position: relative;
+    top: 0;
+    }
+  header {
+    padding-top: 0;
   }
 }
