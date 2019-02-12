@@ -1,3 +1,13 @@
+/* Color Palette
+#e1f4fc - light blue (Nav)
+#212227 - midnight navy (Header/Footer BG)
+#8D99AE - greyish blue (Header/Footer Color)
+#d8e436 - neon yellow (Header h1/h2)
+#db8b12 - orange (a/button)
+#cbe2eb - super light blue (Projects)
+#7a8fb3 - light blue (Training)
+*/
+
 /* Global styles
 --------------------------*/
 /* border box fix */
@@ -102,6 +112,9 @@ nav a:hover {
   color: #212227;
   transition: color .2s;
 }
+.toggleNav {
+  display: none;
+}
 /* Flexbox */
 .flex-nav ul {
   list-style: none;
@@ -116,6 +129,15 @@ nav a:hover {
 @media (max-width: 500px) {
   .flex-nav li {
     flex: 1 4 75%;
+  }
+  .toggleNav {
+    display: block;
+  }
+  .flex-nav ul {
+    display: none;
+  }
+  .flex-nav ul.open {
+    display:flex;
   }
 }
 
