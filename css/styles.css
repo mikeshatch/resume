@@ -112,6 +112,9 @@ nav a:hover {
   color: #212227;
   transition: color .2s;
 }
+.toggleNav {
+  display: none;
+}
 /* Flexbox */
 .flex-nav ul {
   list-style: none;
@@ -126,6 +129,15 @@ nav a:hover {
 @media (max-width: 500px) {
   .flex-nav li {
     flex: 1 4 75%;
+  }
+  .toggleNav {
+    display: block;
+  }
+  .flex-nav ul {
+    display: none;
+  }
+  .flex-nav ul.open {
+    display:flex;
   }
 }
 
