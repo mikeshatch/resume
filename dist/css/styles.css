@@ -1,8 +1,8 @@
 /* Color Palette
-#e1f4fc - light blue (Nav)
-#212227 - midnight navy (Header/Footer BG)
-#8D99AE - greyish blue (Header/Footer Color)
-#d8e436 - neon yellow (Header h1/h2)
+#84daff - light blue (Header/Nav)
+#212227 - midnight navy (About/Footer BG)
+#8D99AE - grey (About/Footer text color)
+#d8e436 - neon yellow (About h1/h2)
 #db8b12 - orange (a/button)
 #cbe2eb - super light blue (Projects)
 #7a8fb3 - light blue (Training)
@@ -58,62 +58,37 @@ a:hover {
   padding: 10px;
   display: inline-block;
 }
-
-/* Header and Footer 
------------------------*/
-header, footer {
-  background: #212227;
-  color: #8D99AE;
-}
-/* header */
-header {
-  padding-top: 50px;
-  position: relative;
-}
-header h1, header h2 {
-  color: #d8e436;
-  margin: 0;
-}
-.profile-img {
-  border-radius: 6px;
-}
-.download {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-/* footer */
-footer {
-  text-align: center;
-}
-.contact-info a {
-  padding: 10px;
-  display: inline-block;
+:root {
+  --backgroundHN: #84daff;
 }
 
-/* Navigation
+/* Header & Navigation
 -----------------------*/
-nav {
-  text-align: center;
-  background: #e1f4fc;
-  top: 0;
-  position: fixed;
+header, nav {
+  background: var(--backgroundHN);
   width: 100%;
+  text-align: center;
+}
+header {
+  position: fixed;
+  z-index: 10;  
+}
+nav { 
+  position: absolute;
+  z-index: 9;   
 }
 nav a {
   display: inline-block;
-  padding: 15px 20px;
+  padding: 15px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
 }
-nav a:hover {
+nav a:hover,
+.btn:hover {
   box-shadow: inset 0 -3px 0 #212227;
   color: #212227;
-  transition: color .2s;
-}
-.toggleNav {
-  display: none;
+  transition: color .5s;
 }
 /* Flexbox */
 .flex-nav ul {
@@ -121,10 +96,23 @@ nav a:hover {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;  
 }
 .flex-nav li {
   flex: 2;
+}
+.toggleNav {
+  display: none;
+}
+/* Flexbox Media Queries */
+@media (min-width: 501px) {
+  nav {
+    display: flex;
+    justify-content: center;    
+  }
+  nav li {
+    border-right: 1px solid #5a6f79;
+  }
 }
 @media (max-width: 500px) {
   .flex-nav li {
@@ -137,8 +125,34 @@ nav a:hover {
     display: none;
   }
   .flex-nav ul.open {
-    display:flex;
+    display: flex;
   }
+}
+
+/* About and Footer 
+-----------------------*/
+#about, footer {
+  background: #212227;
+  color: #8D99AE;
+}
+#about {
+  position: relative;
+}
+
+/* About */
+.about h1, .about h2 {
+  color: #d8e436;
+  margin: 0;
+  text-align: center;
+}
+.profile-img {
+  border-radius: 6px;
+  border: 1px solid #d8e436;
+}
+.btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 /* Side Projects
@@ -159,15 +173,30 @@ h3 ~ p {
 /* Training
 -----------------------*/
 .training {
-  background: #7a8fb3;
+  background-image: url("https://images.unsplash.com/photo-1514418197935-e0cac2bb695a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73703fc107d2c3f2835ec8af1f981c25&auto=format&fit=crop&w=1950&q=80");
+  background-position: center;
 }
 p + h3 {
   margin-top: 30px;
 }
 
-/* Media Queries
+/* Footer */
+footer {
+  text-align: center;
+}
+.contact-info a {
+  padding: 10px;
+  display: inline-block;
+}
+.contact-info a:hover {
+  box-shadow: inset 0 -3px 0 #d8e436;
+  color: #d8e436;
+  transition: color .2s;
+}
+
+/* Global Media Queries
 -----------------------*/
-@media (min-width: 900px) {
+@media (min-width: 900px) {  
   .col-narrow {
     width: 30%;
     float: left;
@@ -177,21 +206,16 @@ p + h3 {
     float: left;
     padding-left: 20px;
   }
+  .profile-img {
+    margin-top: 107px;
+  }
 }
 @media (max-width: 899px) {
-  header {
+  #about {
     text-align: center;
   }
   .profile-img {
     width: 200px;
-  }
-}
-@media (max-width: 500px) {
-  nav {
-    position: relative;
-    top: 0;
-    }
-  header {
-    padding-top: 0;
+    margin-top: 15px;
   }
 }
